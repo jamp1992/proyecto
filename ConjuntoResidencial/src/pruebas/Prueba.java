@@ -1,5 +1,5 @@
 package pruebas;
 
-public class PorJugar {
+public class Prueba {
 
 }
