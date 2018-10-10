@@ -33,7 +33,7 @@ public class MySQLDBAdapter implements IDBAdapter {
 		String db = prop.getProperty(DB_NAME_PROP);
 		String user = prop.getProperty(DB_USER_PROP);
 		String password = prop.getProperty(DB_PASSWORD_PROP);
-		String connectionString = "jdbc:mysql://"+host+":"+port+"/"+db+"?user="+user+"&password"+password;
+		String connectionString = "jdbc:mysql://"+host+":"+port+"/"+db+"?user="+user+"&password"+password+"&useSSL=false";
 		System.out.println("ConnectionString ==> " + connectionString);
 		return connectionString;
     }

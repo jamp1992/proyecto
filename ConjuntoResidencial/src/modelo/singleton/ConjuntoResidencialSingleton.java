@@ -1,7 +1,12 @@
 package modelo.singleton;
 
 
+import java.util.List;
+
+import modelo.builder.Torre;
 import modelo.factorymethod.ConjuntoResidencialDAO;
+import modelo.otros.Parqueadero;
+import modelo.persona.Persona;
 
 public class ConjuntoResidencialSingleton {
 	
@@ -11,6 +16,10 @@ public class ConjuntoResidencialSingleton {
 	
 	private int idConjunto;
 	private String direccion;
+	private List<Persona> persona;
+	private CuentaCorrienteSingleton cuenta;
+	private List<Torre> torre;
+	private Parqueadero parqueadero; 
    
     private ConjuntoResidencialSingleton() {
     	ConjuntoResidencialDAO CRDAO = new ConjuntoResidencialDAO();
@@ -67,7 +76,36 @@ public class ConjuntoResidencialSingleton {
 	public static int getNumero() {
 		return Numero;
 	}
-	
-	
-			
+
+	public List<Persona> getPersona() {
+		return persona;
+	}
+
+	public void setPersona(List<Persona> persona) {
+		this.persona = persona;
+	}
+
+	public CuentaCorrienteSingleton getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(CuentaCorrienteSingleton cuenta) {
+		this.cuenta = cuenta;
+	}
+
+	public List<Torre> getTorre() {
+		return torre;
+	}
+
+	public void setTorre(List<Torre> torre) {
+		this.torre = torre;
+	}
+
+	public Parqueadero getParqueadero() {
+		return parqueadero;
+	}
+
+	public void setParqueadero(Parqueadero parqueadero) {
+		this.parqueadero = parqueadero;
+	}		
 }

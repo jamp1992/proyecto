@@ -1,37 +1,19 @@
 package modelo.prototype;
 import java.util.*;
 
-/**
- * 
- */
+
+
 public class AptoPrototype {
 
-    /**
-     * Default constructor
-     */
     public AptoPrototype() {
     }
+    private static Map<String, IAptoPrototype> prototypes = new  HashMap<String, IAptoPrototype>();
 
-    /**
-     * 
-     */
-    private static Map prototypes;
-
-    /**
-     * @param prototypeName 
-     * @return
-     */
-    public AptoPrototype getPrototype(String prototypeName) {
-        // TODO implement here
-        return null;
+    public static IAptoPrototype getPrototype(String prototypeName) {
+    	return prototypes.get(prototypeName).deepClone();
     }
-
-    /**
-     * @param prototypeName 
-     * @param prototype
-     */
-    public void addPrototype(String prototypeName, IAptoPrototype prototype) {
-        // TODO implement here
+    public static void addPrototype(String prototypeName, IAptoPrototype prototype) {
+    	prototypes.put(prototypeName, prototype);
     }
 
 }
