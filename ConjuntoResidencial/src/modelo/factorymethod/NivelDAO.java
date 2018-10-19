@@ -19,7 +19,7 @@ public class NivelDAO {
 		Connection connection = dbAdapter.getConnection();
 		List<Nivel> NivelList = new ArrayList<>();
 		try {
-			PreparedStatement statement= connection.prepareStatement("SELECT idnivel FROM Torre");
+			PreparedStatement statement= connection.prepareStatement("SELECT idnivel FROM Nivel");
 			ResultSet results = statement.executeQuery();
 			while(results.next()) {
 				NivelList.add(new Nivel(results.getInt(1)));	

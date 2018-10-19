@@ -2,16 +2,22 @@
 import java.util.*;
 
 import modelo.factorymethod.AdmnistradorDAO;
-import modelo.factorymethod.ConjuntoResidencialDAO;
+
+import modelo.factorymethod.EmpleadoDAO;
+import modelo.factorymethod.ResidenteDAO;
 import modelo.otros.PagoAdmin;
 import modelo.otros.PagoServicioMantenimeinto;
 import modelo.persona.PersonaAcceso;
-/**
- * 
- */
-public class AdministradorSingleton extends PersonaAcceso{
+
+
+public class AdministradorSingleton {
 	
-	private static AdministradorSingleton singleton;	
+	private static AdministradorSingleton singleton;
+	private int cedula;
+	private String nombre;
+	private String apellido;
+	private String usuario;
+	private String contrasena;
     
 	private AdministradorSingleton() {
     	AdmnistradorDAO ADAO = new AdmnistradorDAO();
@@ -47,22 +53,19 @@ public class AdministradorSingleton extends PersonaAcceso{
     /**
      * @return
      */
-    public void gestionarEmpleado() {
-        // TODO implement here
-        
+    public EmpleadoDAO gestionarEmpleado() {
+        EmpleadoDAO empleado = new EmpleadoDAO();
+        return empleado;
     }
 
     /**
      * @return
      */
-    public void gestionarResidente() {
-        // TODO implement here
-       
+    public ResidenteDAO gestionarResidente() {
+        ResidenteDAO residente = new ResidenteDAO();
+        return residente;
     }
-
-    /**
-     * @return
-     */
+    
     public List<PagoAdmin> solicitarInformePagoAdmin() {
         // TODO implement here
         return null;
@@ -91,5 +94,54 @@ public class AdministradorSingleton extends PersonaAcceso{
         // TODO implement here
         return null;
     }
+
+	public static AdministradorSingleton getSingleton() {
+		return singleton;
+	}
+
+	public static void setSingleton(AdministradorSingleton singleton) {
+		AdministradorSingleton.singleton = singleton;
+	}
+
+	public int getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(int cedula) {
+		this.cedula = cedula;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+    
 
 }

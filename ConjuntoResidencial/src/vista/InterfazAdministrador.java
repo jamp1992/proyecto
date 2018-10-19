@@ -1,12 +1,17 @@
 package vista;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import javax.swing.JTabbedPane;
 import javax.swing.border.TitledBorder;
+
+import modelo.singleton.AdministradorSingleton;
+import modelo.singleton.ConjuntoResidencialSingleton;
+
 import javax.swing.border.EtchedBorder;
 
 
@@ -21,6 +26,7 @@ public class InterfazAdministrador extends JFrame {
 			
 			public void run() {
 				try {
+					
 					InterfazAdministrador frame = new InterfazAdministrador();
 					frame.setVisible(true);
                                        

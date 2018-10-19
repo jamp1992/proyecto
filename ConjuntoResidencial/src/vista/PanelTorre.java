@@ -14,19 +14,20 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
+import controlador.ControladorPanelTorre;
+
 
 
 
 public class PanelTorre extends JPanel {
 	
 	public JTextField textid;
-	public JTextField textFieldID;
 	public JTextField textNombre;
-	public JTextField textdescripcion;
 	public JTextField textNumeroPisos;
 	public JTextField textNumeroAptos;
-	public JTextField textcantidad;
-        public JTextField textinventario;
+	public JTextField textPosicionX;
+	public JTextField textPosicionY;
+	public JButton btnMostrarApto;
         public JScrollPane scroll;
         public Object[][] datos;
         public DefaultTableModel modeloTabla;
@@ -48,7 +49,7 @@ public class PanelTorre extends JPanel {
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		//scrollPane.setBounds(0, 45, 677, 179);
-		scrollPane.setBounds(0, 45, 375, 179);
+		scrollPane.setBounds(0, 45, 280, 179);
 		add(scrollPane);
 		
                 table = new JTable();
@@ -72,16 +73,16 @@ public class PanelTorre extends JPanel {
 		scrollPaneApto.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPaneApto.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		//scrollPane.setBounds(0, 45, 677, 179);
-		scrollPaneApto.setBounds(380, 45, 402, 179);
+		scrollPaneApto.setBounds(284, 45, 498, 179);
 		add(scrollPaneApto);
 		
                 tableApto = new JTable();
                 modeloTablaApto = new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"idApto", "Tipo", "Largo","Ancho","m2","Residente"
+				"idApto", "Residente","# Apto","Valor","Descripcion","Largo","Ancho","m2"
 			}
 		); 
 		tableApto.setForeground(new Color(0, 0, 0));
@@ -106,25 +107,29 @@ public class PanelTorre extends JPanel {
 		add(textid);
 		textid.setColumns(10);
 		
-		JButton btnEliminar = new JButton("Mostrar Aptos");
-		btnEliminar.setBounds(655, 11, 120, 23);
-		add(btnEliminar);
+		btnMostrarApto = new JButton("Mostrar Aptos");
+		btnMostrarApto.setBounds(655, 11, 120, 23);
+		btnMostrarApto.addActionListener(new ControladorPanelTorre(this));
+		btnMostrarApto.setEnabled(false);
+		add(btnMostrarApto);
                 
 		
-		JButton btnagregar = new JButton("Mostrar torres");
-		btnagregar.setBounds(240, 11, 130, 23);
-		add(btnagregar);
+		JButton btnMostrarTorre = new JButton("Mostrar Torres");
+		btnMostrarTorre.setBounds(240, 11, 130, 23);
+		btnMostrarTorre.addActionListener(new ControladorPanelTorre(this));
+		add(btnMostrarTorre);
                 
                 
 		
 		JPanel panelmodificadorCrear = new JPanel();
 		panelmodificadorCrear.setBorder(new TitledBorder(null, "Crear Torre", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(220, 20, 60)));
-		panelmodificadorCrear.setBounds(0, 223, 392, 140);
+		panelmodificadorCrear.setBounds(0, 223, 498, 140);
 		add(panelmodificadorCrear);
 		panelmodificadorCrear.setLayout(null);
 		
 		JButton crearTorre= new JButton("Crear");
 		crearTorre.setBounds(10, 23, 89, 23);
+		crearTorre.addActionListener(new ControladorPanelTorre(this));
 		panelmodificadorCrear.add(crearTorre);
 		                         
 		JLabel lbNombre = new JLabel("Nombre");
@@ -138,6 +143,14 @@ public class PanelTorre extends JPanel {
 		JLabel lbNumeroPisos = new JLabel("No Pisos");
 		lbNumeroPisos.setBounds(120, 23, 89, 14);
 		panelmodificadorCrear.add(lbNumeroPisos);
+		
+		JLabel lbPosicionX = new JLabel("Posicion X");
+		lbPosicionX.setBounds(350, 23, 89, 14);
+		panelmodificadorCrear.add(lbPosicionX);
+		
+		JLabel lbPosicionY = new JLabel("Posicion Y");
+		lbPosicionY.setBounds(350, 51, 89, 14);
+		panelmodificadorCrear.add(lbPosicionY);
 		
 		textNumeroPisos = new JTextField();
 		textNumeroPisos.setColumns(10);
@@ -156,14 +169,27 @@ public class PanelTorre extends JPanel {
 		textNombre.setBounds(180, 73, 131, 20);
         textNombre.setEnabled(false);
 		panelmodificadorCrear.add(textNombre);
+		
+		textPosicionX = new JTextField();
+		textPosicionX.setColumns(10);
+		textPosicionX.setBounds(420, 20, 70, 23);
+		textPosicionX.setEnabled(false);
+		panelmodificadorCrear.add(textPosicionX);
+		
+		textPosicionY = new JTextField();
+		textPosicionY.setColumns(10);
+		textPosicionY.setBounds(420, 48, 70, 20);
+		textPosicionY.setEnabled(false);
+		panelmodificadorCrear.add(textPosicionY);
                        
-        JButton btnregistrar = new JButton("Registrar Torre");
-		btnregistrar.setBounds(180, 100, 131, 23);
-		panelmodificadorCrear.add(btnregistrar);
+        JButton btnRegistrar = new JButton("Registrar Torre");
+		btnRegistrar.setBounds(180, 100, 131, 23);
+		btnRegistrar.addActionListener(new ControladorPanelTorre(this));
+		panelmodificadorCrear.add(btnRegistrar);
 		
 		JPanel panelmodificadorModificar = new JPanel();
 		panelmodificadorModificar.setBorder(new TitledBorder(null, "Modificar Torre", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(220, 20, 60)));
-		panelmodificadorModificar.setBounds(394, 223, 390, 140);
+		panelmodificadorModificar.setBounds(500, 223, 282, 140);
 		add(panelmodificadorModificar);
 		panelmodificadorModificar.setLayout(null);
        

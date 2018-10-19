@@ -8,12 +8,12 @@ public class Persona {
     public String apellido;
     
 
-	/*public Persona(int cedula, String nombre, String apellido) {
+	public Persona(int cedula, String nombre, String apellido) {
 		super();
 		this.cedula = cedula;
 		this.nombre = nombre;
 		this.apellido = apellido;
-	}*/
+	}
 
 	public int getCedula() {
 		return cedula;

@@ -1,6 +1,6 @@
 package modelo.otros;
 
-
+import modelo.persona.Residente;
 
 /**
  * 
@@ -8,6 +8,7 @@ package modelo.otros;
 public class Estacionamiento {
 
 	private int idEstacionamiento;
+	private Residente residente;
 	
     public Estacionamiento() {
     }
@@ -19,6 +20,15 @@ public class Estacionamiento {
 	public void setIdEstacionamiento(int idEstacionamiento) {
 		this.idEstacionamiento = idEstacionamiento;
 	}
+
+	public Residente getResidente() {
+		return residente;
+	}
+
+	public void setResidente(Residente residente) {
+		this.residente = residente;
+	}
+	
 
 	/**
      * 

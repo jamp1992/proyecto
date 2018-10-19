@@ -3,6 +3,14 @@ package modelo.builder;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import modelo.decorator.PisoMadera;
+import modelo.persona.Residente;
+import modelo.prototype.AptoImpl;
+import modelo.prototype.AptoPrototype;
+import modelo.prototype.ComponenteAptoPrototype;
+
+
 public class Torre {
 
     private int idTorre;
@@ -79,9 +87,36 @@ public class Torre {
 			
 			return this;
 		}
+		public TorreBuilder addNivel(int idNivel, int cApto) {
+			int cont=100;
+			ComponenteAptoPrototype apto =new AptoImpl(1,"I",1,12,13,50,200000,null);
+			AptoPrototype.addPrototype(apto.getDescripcion(), apto);
+			for(int i=0;i<idNivel;i++) {
+				
+				List<ComponenteAptoPrototype> aptoList= new ArrayList<>();
+				for(int j=0;j<cApto;j++) {
+					
+					ComponenteAptoPrototype aptoRegistro = (AptoImpl)AptoPrototype.getPrototype("I");
+					aptoRegistro.setNumeroApto(cont+j);
+					aptoRegistro=new PisoMadera(aptoRegistro);
+					aptoList.add(aptoRegistro);
+				}
+				nivel.add(new Nivel(i, aptoList));
+				cont=cont+100;
+		    }
+			System.out.println("Torre Creada!!!");
+			return this;
+		}
+		
 		@Override
 		public Torre build() {
 			return new Torre(nombre,posicionX,posicionY,nivel);
+		}
+
+		public TorreBuilder addNivel(int idNivel, int cApto, String nombreApto, int numeroApto, float largo,
+				float ancho, int m2, Double valor, Residente residente) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
     }

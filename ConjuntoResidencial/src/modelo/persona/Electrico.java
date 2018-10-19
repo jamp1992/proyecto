@@ -1,16 +1,13 @@
 package modelo.persona;
 
-import java.util.*;
 
-/**
- * 
- */
 public class Electrico extends PersonalMantenimiento {
 
-    /**
-     * Default constructor
-     */
-    public Electrico() {
-    }
+	public Electrico(int cedula, String nombre, String apellido) {
+		super(cedula, nombre, apellido);
+		// TODO Auto-generated constructor stub
+	}
+
+    
 
 }

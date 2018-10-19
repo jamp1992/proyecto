@@ -2,17 +2,16 @@ package modelo.prototype;
 import java.util.*;
 
 
-
 public class AptoPrototype {
 
-    public AptoPrototype() {
+	public AptoPrototype() {
     }
-    private static Map<String, IAptoPrototype> prototypes = new  HashMap<String, IAptoPrototype>();
+    private static Map<String, ComponenteAptoPrototype> prototypes = new  HashMap<String, ComponenteAptoPrototype>();
 
-    public static IAptoPrototype getPrototype(String prototypeName) {
+    public static ComponenteAptoPrototype getPrototype(String prototypeName) {
     	return prototypes.get(prototypeName).deepClone();
     }
-    public static void addPrototype(String prototypeName, IAptoPrototype prototype) {
+    public static void addPrototype(String prototypeName, ComponenteAptoPrototype prototype) {
     	prototypes.put(prototypeName, prototype);
     }
 

@@ -1,16 +1,13 @@
 package modelo.persona;
 
-import java.util.*;
 
-/**
- * 
- */
 public class PersonaServicioGeneral extends PersonalMantenimiento {
 
-    /**
-     * Default constructor
-     */
-    public PersonaServicioGeneral() {
-    }
+	public PersonaServicioGeneral(int cedula, String nombre, String apellido) {
+		super(cedula, nombre, apellido);
+		// TODO Auto-generated constructor stub
+	}
+
+    
 
 }

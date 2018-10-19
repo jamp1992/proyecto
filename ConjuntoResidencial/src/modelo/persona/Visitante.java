@@ -7,15 +7,11 @@ import java.util.*;
  */
 public class Visitante extends Persona {
 
-    /**
-     * Default constructor
-     */
-    public Visitante() {
-    }
+	
+    public Visitante(int cedula, String nombre, String apellido) {
+		super(cedula, nombre, apellido);
+	}
 
-    /**
-     * 
-     */
-    public Date fechaEntrada;
+	public Date fechaEntrada;
 
 }

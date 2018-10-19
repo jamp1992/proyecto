@@ -3,14 +3,15 @@ package modelo.builder;
 import java.util.List;
 
 import modelo.prototype.AptoImpl;
+import modelo.prototype.ComponenteAptoPrototype;
 
 public class Nivel {
 	
 	private int idPiso;
-	private List<AptoImpl> apto;
+	private List<ComponenteAptoPrototype> apto;
 	
 	
-    public Nivel(int idPiso, List<AptoImpl> apto) {
+    public Nivel(int idPiso, List<ComponenteAptoPrototype> apto) {
 		this.idPiso = idPiso;
 		this.apto = apto;
 	}
@@ -30,11 +31,11 @@ public class Nivel {
 		this.idPiso = idPiso;
 	}
 
-	public List<AptoImpl> getApto() {
+	public List<ComponenteAptoPrototype> getApto() {
 		return apto;
 	}
 
-	public void setApto(List<AptoImpl> apto) {
+	public void setApto(List<ComponenteAptoPrototype> apto) {
 		this.apto = apto;
 	}
 	

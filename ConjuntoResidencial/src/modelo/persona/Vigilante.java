@@ -2,6 +2,8 @@ package modelo.persona;
 
 
 
+import java.sql.Date;
+
 import modelo.otros.Estacionamiento;
 
 /**
@@ -9,17 +11,13 @@ import modelo.otros.Estacionamiento;
  */
 public class Vigilante extends Empleado {
 
-    /**
-     * Default constructor
-     */
-    public Vigilante() {
-    }
+    
+	
+    public Vigilante(int cedula, String nombre, String apellido, String usuario, String contrasena, Date fechaIngreso) {
+		super(cedula, nombre, apellido, usuario, contrasena, fechaIngreso);
+	}
 
-    /**
-     * @param Visitante 
-     * @return
-     */
-    public void controlarAccesoVisitante(Visitante visitante) {
+	public void controlarAccesoVisitante(Visitante visitante) {
         // TODO implement here
     }
 

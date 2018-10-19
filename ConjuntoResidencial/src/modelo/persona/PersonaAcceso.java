@@ -8,11 +8,11 @@ public class PersonaAcceso extends Persona {
     private String contrasena;
     
     
-	/*public PersonaAcceso(int cedula, String nombre, String apellido, String usuario, String contrasena) {
+	public PersonaAcceso(int cedula, String nombre, String apellido, String usuario, String contrasena) {
 		super(cedula, nombre, apellido);
 		this.usuario = usuario;
 		this.contrasena = contrasena;
-	}*/
+	}
 
 
 

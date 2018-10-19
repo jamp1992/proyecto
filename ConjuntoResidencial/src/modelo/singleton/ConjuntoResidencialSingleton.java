@@ -18,6 +18,7 @@ public class ConjuntoResidencialSingleton {
 	private String direccion;
 	private List<Persona> persona;
 	private CuentaCorrienteSingleton cuenta;
+	private AdministradorSingleton admin;
 	private List<Torre> torre;
 	private Parqueadero parqueadero; 
    
@@ -91,6 +92,14 @@ public class ConjuntoResidencialSingleton {
 
 	public void setCuenta(CuentaCorrienteSingleton cuenta) {
 		this.cuenta = cuenta;
+	}
+
+	public AdministradorSingleton getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(AdministradorSingleton admin) {
+		this.admin = admin;
 	}
 
 	public List<Torre> getTorre() {

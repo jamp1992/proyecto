@@ -1,9 +1,131 @@
 package modelo.prototype;
 
 
+
 import modelo.persona.Residente;
 
-public class AptoImpl implements IAptoPrototype<AptoImpl> {
+public class AptoImpl extends ComponenteAptoPrototype{
+	
+	private String nombreApto;
+	private double valor;
+
+	public AptoImpl() {
+		super();
+	}
+
+	
+
+
+	public AptoImpl(int idAptoImpl, String nombreApto, int numeroApto, float largo, float ancho, int m2, double valor,
+			Residente residente) {
+		super(idAptoImpl, nombreApto, numeroApto, largo, ancho, m2, valor, residente);
+		this.nombreApto=nombreApto;
+		this.valor=valor;
+	}
+	
+	public AptoImpl(int idAptoImpl, String nombreApto, int numeroApto, float largo, float ancho, int m2, double valor) {
+		super(idAptoImpl, numeroApto, largo, ancho, m2);
+		this.nombreApto=nombreApto;
+		this.valor=valor;
+	}
+
+
+
+
+	@Override
+	public ComponenteAptoPrototype clone() {
+		return new AptoImpl (this.getIdAptoImpl(),this.nombreApto,this.getNumeroApto(),this.getLargo(),this.getAncho(),this.getM2(), this.valor, this.getResidente());
+	}
+
+	@Override
+	public ComponenteAptoPrototype deepClone() {
+		AptoImpl clone = new AptoImpl();
+    	clone.setNombreApto(this.nombreApto);
+		clone.setNumeroApto(this.getNumeroApto());
+		clone.setLargo(this.getLargo());
+		clone.setAncho(this.getAncho());
+		clone.setM2(this.getM2());
+		clone.setValor(this.valor);
+		return clone;
+	}
+
+	public String getNombreApto() {
+		return nombreApto;
+	}
+
+	public void setNombreApto(String nombreApto) {
+		this.nombreApto = nombreApto;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+	@Override
+	public String getDescripcion() {
+		// TODO Auto-generated method stub
+		return nombreApto;
+	}
+
+	@Override
+	public double getValorAgregado() {
+		// TODO Auto-generated method stub
+		return valor;
+	}
+	
+	@Override
+	public int getIdApto() {
+		// TODO Auto-generated method stub
+		return getIdAptoImpl();
+	}
+
+	@Override
+	public int getNumApto() {
+		// TODO Auto-generated method stub
+		return getNumeroApto();
+	}
+
+
+
+
+	@Override
+	public float getAptoLargo() {
+		// TODO Auto-generated method stub
+		return getLargo();
+	}
+
+
+
+
+	@Override
+	public float getAptoAncho() {
+		// TODO Auto-generated method stub
+		return getAncho();
+	}
+
+
+
+
+	@Override
+	public int getMetro2() {
+		// TODO Auto-generated method stub
+		return getM2();
+	}
+
+
+
+
+	@Override
+	public Residente getRes() {
+		// TODO Auto-generated method stub
+		return getResidente();
+	}
+	
+	/*
 	private int idAptoImpl;
 	private String nombreApto;
     private int numeroApto;
@@ -12,7 +134,21 @@ public class AptoImpl implements IAptoPrototype<AptoImpl> {
     private int m2;
     private double valor;
     private Residente residente;
+    
+    
 	
+	public AptoImpl(int idAptoImpl, float largo, float ancho, int m2, double valor,int numeroApto,
+			Residente residente, String nombreApto) {
+		this.idAptoImpl = idAptoImpl;
+		this.nombreApto = nombreApto;
+		this.numeroApto = numeroApto;
+		this.largo = largo;
+		this.ancho = ancho;
+		this.m2 = m2;
+		this.valor = valor;
+		this.residente = residente;
+	}
+
 	public AptoImpl(String nombreApto,int numeroApto, float largo, float ancho, int m2, double valor,
 			Residente residente) {
 		this.nombreApto=nombreApto;
@@ -22,6 +158,16 @@ public class AptoImpl implements IAptoPrototype<AptoImpl> {
 		this.m2 = m2;
 		this.valor = valor;
 		this.residente = residente;
+	}
+	
+
+	public AptoImpl(int idAptoImpl, float largo, float ancho, int m2, double valor,int numeroApto) {
+		this.idAptoImpl = idAptoImpl;
+		this.numeroApto = numeroApto;
+		this.largo = largo;
+		this.ancho = ancho;
+		this.m2 = m2;
+		this.valor = valor;
 	}
 
 	public AptoImpl(int numeroApto) {
@@ -118,7 +264,19 @@ public class AptoImpl implements IAptoPrototype<AptoImpl> {
     @Override
 	public String toString() {
 		
-		return "Apto=" + nombreApto + ", idApto=\n" + idAptoImpl + ", valor=\n" + valor + '}';
+		return "Apto=" + nombreApto + ", idApto=\n" + idAptoImpl + ", valor=\n" + valor +", nombreApto=\n" + nombreApto + '}';
 	}
+
+	@Override
+	public String getDescripcion() {
+		// TODO Auto-generated method stub
+		return nombreApto;
+	}
+
+	@Override
+	public double getValorAgregado() {
+		// TODO Auto-generated method stub
+		return valor;
+	}*/
 
 }
