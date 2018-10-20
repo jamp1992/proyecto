@@ -17,6 +17,7 @@ public class ControladorPanelEmpleado implements ActionListener {
 
 	private PanelEmpleado pe;
 	private Empleado empleado;
+	private Date date;
 	private AdministradorSingleton admin=AdministradorSingleton.getInstance();
 	private ConjuntoResidencialSingleton crs=ConjuntoResidencialSingleton.getInstance();
 	public ControladorPanelEmpleado(PanelEmpleado pe) {
@@ -45,22 +46,22 @@ public class ControladorPanelEmpleado implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		switch(event.getActionCommand()) {
 		case "Guardar Aux. Admin":
-			//empleado= new Empleado(Integer.parseInt(pe.textCedula.getText()),pe.textNombre.getText(),pe.textApellido.getText(),pe.textUsuario.getText(),pe.textContrasena.getText(),Date.valueOf(pe.textFechaIngreso.getText()));
-			String formato=pe.c.getDateFormatString();
-			Date date=pe.c.getCalendar().getTime();
-			SimpleDateFormat sdf = new SimpleDateFormat(formato);
-			pe.textCedula.setText(String.valueOf(sdf.format(date)));
-			empleado= new Empleado(1024,"John","Martinez","jm","1234",date);
-			//admin.gestionarEmpleado().crearAuxiliarAdmin(empleado, crs.getIdConjunto());
-			//EmpleadoDAO EDAO= new EmpleadoDAO();
-			//EDAO.crearAuxiliarAdmin(empleado, crs.getIdConjunto());
+			date=pe.c.getCalendar().getTime();
+			empleado= new Empleado(Integer.parseInt(pe.textCedula.getText()),pe.textNombre.getText(),pe.textApellido.getText(),pe.textUsuario.getText(),pe.textContrasena.getText(),date);
+			admin.gestionarEmpleado().crearAuxiliarAdmin(empleado, crs.getIdConjunto());
 			
 			break;
 			
 		case "Guardar Vigilante":
+			date=pe.c.getCalendar().getTime();
+			empleado= new Empleado(Integer.parseInt(pe.textCedula.getText()),pe.textNombre.getText(),pe.textApellido.getText(),pe.textUsuario.getText(),pe.textContrasena.getText(),date);
+			admin.gestionarEmpleado().crearVigilante(empleado, crs.getIdConjunto());
 			break;
 			
 		case "Guardar Personal Mant.":
+			date=pe.c.getCalendar().getTime();
+			empleado= new Empleado(Integer.parseInt(pe.textCedula.getText()),pe.textNombre.getText(),pe.textApellido.getText(),pe.textUsuario.getText(),pe.textContrasena.getText(),date);
+			admin.gestionarEmpleado().crearPersonalMantenimiento(empleado, crs.getIdConjunto());
 			break;
 		}
 		

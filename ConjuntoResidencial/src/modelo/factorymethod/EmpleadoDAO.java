@@ -19,6 +19,7 @@ public class EmpleadoDAO {
     
 	//CRUD AuxiliarAdmin
     public boolean crearAuxiliarAdmin(Empleado empleado, int idConjuntoResidencial) {
+    	
     	Connection connection = dbAdapter.getConnection();
 		try {
 			PreparedStatement statement= connection.prepareStatement("INSERT INTO AuxAdministrativo(cedula,"+"nombre, apellido,usuario,contrasena,fechaIngreso, ConjuntoResidencial_idConjuntoResidencial) Values(?,?,?,?,?,?,?)");
@@ -27,8 +28,7 @@ public class EmpleadoDAO {
 			statement.setString(3, empleado.getApellido());
 			statement.setString(4,empleado.getUsuario());
 			statement.setString(5,empleado.getContrasena());
-			//statement.setDate(6,empleado.getFechaIngreso());
-			//statement.setDate(6,new java.sql.empleado.getFechaIngreso());
+			statement.setDate(6,new java.sql.Date(empleado.getFechaIngreso().getTime()));
 			statement.setInt(7, idConjuntoResidencial);
 			statement.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Registro Exitoso");
@@ -101,7 +101,7 @@ public class EmpleadoDAO {
 			statement.setString(3, empleado.getApellido());
 			statement.setString(4,empleado.getUsuario());
 			statement.setString(5,empleado.getContrasena());
-			//statement.setDate(6,empleado.getFechaIngreso());
+			statement.setDate(6,new java.sql.Date(empleado.getFechaIngreso().getTime()));
 			statement.setInt(7, idConjuntoResidencial);
 			statement.executeUpdate();
 			return true;
@@ -171,7 +171,7 @@ public class EmpleadoDAO {
 			statement.setInt(1,empleado.getCedula());
 			statement.setString(2,empleado.getNombre());
 			statement.setString(3, empleado.getApellido());
-			//statement.setDate(4,empleado.getFechaIngreso());
+			statement.setDate(6,new java.sql.Date(empleado.getFechaIngreso().getTime()));
 			statement.setInt(5, idConjuntoResidencial);
 			statement.executeUpdate();
 			return true;
